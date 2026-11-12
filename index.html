@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="dndtools.css">
+    <script defer src="src/dndtools.js"></script>
+    <title>RPG Tools - nounontoi</title>
+</head>
+
+<body style="user-select: none">
+    <!-- <img src="assets/dnd.jpg" class="backgroundImage"> -->
+    <div class="container">
+        <div class="col">
+            <h1>Dice</h1>
+            <div class="glass bordered">
+                <div class="container">
+                    <div class="boxes">
+                        <p>Count</p>
+                        <input type="number" id="rollCount" class="numInput" min="1" max="99" value="1">
+                        <div>
+                            <button class="incrementButton" onclick="modifyRollCountValue(-1), validateCount()"><span
+                                    class="red button_top">-</span>
+                            </button>
+                            <button class="incrementButton" onclick="modifyRollCountValue(1), validateCount()"><span
+                                    class="green button_top">+</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="boxes">
+                        <p>Modifier</p>
+                        <input type="number" id="modifier" class="numInput" max="99" value="0">
+                        <div>
+                            <button class="incrementButton" onclick="modifyRollModifierValue(-1)"><span
+                                    class="red button_top">-</span>
+                            </button>
+                            <button class="incrementButton" onclick="modifyRollModifierValue(1)"><span
+                                    class="green button_top">+</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button onclick="rollDice(2)"><span class="button_top">d2</span></button>
+                <button onclick="rollDice(3)"><span class="button_top">d3</span></button>
+                <button onclick="rollDice(4)"><span class="button_top">d4</span></button>
+                <button onclick="rollDice(6)"><span class="button_top">d6</span></button>
+                <button onclick="rollDice(8)"><span class="button_top">d8</span></button>
+                <button onclick="rollDice(10)"><span class="button_top">d10</span></button>
+                <button onclick="rollDice(12)"><span class="button_top">d12</span></button>
+                <button onclick="rollDice(20)"><span class="button_top">d20</span></button>
+                <button onclick="rollDice(100)"><span class="button_top">d100</span></button>
+            </div>
+            <h1>Quick rolls</h1>
+            <div class="boxes glass bordered">
+                <button onclick="rollInitiative()"><span class="button_top">Initiative</span></button>
+                <p>Modifier</p>
+                <input type="number" id="initiativeModifier" class="numInput" value="0">
+                <div>
+                    <button class="incrementButton" onclick="modifyInitiativeModifierValue(-1)"><span
+                            class="red button_top">-</span>
+                    </button>
+                    <button class="incrementButton" onclick="modifyInitiativeModifierValue(1)"><span
+                            class="green button_top">+</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h1>Dice roll results</h1>
+            <div id="rollResults"></div>
+        </div>
+        <div class="col" style="max-width: 8vw;">
+            <h1>Roll history</h1>
+            <button onclick="updateHistory(true)"><span class="button_top">Clear</span></button>
+            <div id="rollHistory"></div>
+        </div>
+    </div>
+    <!-- <div class="container">
+        <div class="col">
+            <h1>Spell Tracker</h1>
+            Add later
+        </div>
+    </div> -->
+</body>
+
+</html>
